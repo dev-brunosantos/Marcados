@@ -5,7 +5,7 @@ interface UseLogin {
     (): ContextType<typeof LoginContext>;
 }
 
-export const useLogin: UseLogin = () => {
+export const useLogin = () => {
     const contexto = useContext(LoginContext)
     if(!contexto) {
         throw new Error("Não existe nenhum contexto de LOGIN no sistema.")
