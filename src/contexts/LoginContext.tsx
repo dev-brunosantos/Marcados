@@ -18,7 +18,7 @@ interface LoginProps {
     erro: boolean;
 }
 
-const LoginContext = createContext<LoginProps | null>(null)
+const LoginContext = createContext<LoginProps | undefined>(undefined)
 
 const LoginProvider = ({ children }:ReactProps) => {
 
@@ -30,13 +30,14 @@ const LoginProvider = ({ children }:ReactProps) => {
     function login(email: string, senha: string) {
         if(email.trim() === "" || senha.trim() === "") {
             setErro(true)
-            console.log("Todos os campos devem ser preenchidos para a realização do Login.")
+            alert("Todos os campos devem ser preenchidos para a realização do Login.")
+            return router.refresh()
         }
 
         setErro(false)
         setUsuario({ email, senha })
 
-        return router.push('/cadastro-usuario')
+        return router.push('/home')
     }
 
     return(
