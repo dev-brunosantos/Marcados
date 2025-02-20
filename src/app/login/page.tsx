@@ -1,19 +1,19 @@
 "use client"
 
+import { useState } from "react";
 import { BtnComponent } from "@/src/components/Btn";
 import { InputComponent } from "@/src/components/Input";
 import { useLogin } from "@/src/hooks/useLogin";
-import { useState } from "react";
 
 export default function Login() {
 
-    const funcLogin = useLogin();
+    const { login, erro } = useLogin();
 
     const [email, setemail] = useState('')
     const [senha, setSenha] = useState('')
 
     function realizarLogin() {
-        funcLogin?.login(email, senha)
+        login(email, senha)
     }
 
     return (
@@ -26,7 +26,7 @@ export default function Login() {
                     onChange={e => setemail(e.target.value)}
                 />
                 <InputComponent
-                    isPassword={false}
+                    isPassword={true}
                     placeholder="Digite sua senha"
                     onChange={e => setSenha(e.target.value)}
                 />
@@ -41,10 +41,10 @@ export default function Login() {
 
             <div>
                 {
-                    funcLogin?.erro && (
+                    erro && (
                         <>
                             <p>Não tem conta?</p>
-                            <a href="">Clique aqui e cadastre-se</a>
+                            <a href="/cadastro/usuario">Clique aqui e cadastre-se</a>
                         </>
                     )
                 }
