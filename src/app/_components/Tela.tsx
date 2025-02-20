@@ -10,7 +10,7 @@ export function Tela({ children }: ReactProps) {
 
 export function Container({ children }: ReactProps) {
     return (
-        <div className="w-[100%] h-auto p-5 flex flex-col items-center justify-evenly border-2 bg-black">
+        <div className="w-[100%] h-auto p-5 flex flex-col items-center justify-evenly">
             {children}
         </div>
     )
