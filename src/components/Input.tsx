@@ -18,7 +18,7 @@ export const InputComponent = ({ isPassword, ...rest }: InputProps) => {
     if (isPassword) {
         return (
             <div className="
-              w-[90%] h-11 border rounded-md relative flex items-center justify-center overflow-hidden
+              w-[90%] h-11 border rounded-md relative flex items-center justify-center overflow-hidden my-3
             ">
                 <input
                     type={tipo}
@@ -40,7 +40,7 @@ export const InputComponent = ({ isPassword, ...rest }: InputProps) => {
 
     return (
         <div className="
-          w-[90%] h-11 border rounded-md relative flex items-center justify-center overflow-hidden my-5
+          w-[90%] h-11 border rounded-md relative flex items-center justify-center overflow-hidden my-3
         ">
             <input
                 type="text"
