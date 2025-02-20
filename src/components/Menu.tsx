@@ -1,11 +1,17 @@
+"use client"
+
 import Link from "next/link"
+import { useRouter } from 'next/navigation';
 import { Undo2 } from 'lucide-react';
 
 export const MenuPrincipal = () => {
+
+    const router = useRouter();
+
     return(
         <header>
             <div>
-                <a href="">Logomarca</a>
+                <a href="">Logo</a>
             </div>
 
             <nav>
@@ -15,7 +21,7 @@ export const MenuPrincipal = () => {
                     <Link href=''>Louvores</Link>
                 </ul>
 
-                <button>
+                <button onClick={() => router.push('/login')}>
                     Sair 
                     <span>
                         <Undo2 />

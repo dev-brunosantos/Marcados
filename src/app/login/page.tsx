@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BtnComponent } from "@/src/components/Btn";
 import { InputComponent } from "@/src/components/Input";
 import { useLogin } from "@/src/hooks/useLogin";
+import { Container, Tela } from "../_components/Tela";
 
 export default function Login() {
 
@@ -17,9 +18,8 @@ export default function Login() {
     }
 
     return (
-        <div>
-
-            <div>
+        <Tela>
+            {/* <div>
                 <InputComponent
                     isPassword={false}
                     placeholder="Digite seu e-mail"
@@ -30,16 +30,36 @@ export default function Login() {
                     placeholder="Digite sua senha"
                     onChange={e => setSenha(e.target.value)}
                 />
-            </div>
+            </div> */}
 
-            <div>
+            <Container>
+                <InputComponent
+                    isPassword={false}
+                    placeholder="Digite seu e-mail"
+                    onChange={e => setemail(e.target.value)}
+                />
+                <InputComponent
+                    isPassword={true}
+                    placeholder="Digite sua senha"
+                    onChange={e => setSenha(e.target.value)}
+                />
+            </Container>
+
+            {/* <div>
                 <BtnComponent
                     titulo="Entrar"
                     onClick={realizarLogin}
                 />
-            </div>
+            </div> */}
 
-            <div>
+            <Container>
+                <BtnComponent
+                    titulo="Entrar"
+                    onClick={realizarLogin}
+                />
+            </Container>
+
+            {/* <div>
                 {
                     erro && (
                         <>
@@ -48,7 +68,18 @@ export default function Login() {
                         </>
                     )
                 }
-            </div>
-        </div>
+            </div> */}
+
+            <Container>
+                {
+                    erro && (
+                        <>
+                            <p>Não tem conta?</p>
+                            <a href="/cadastro/usuario">Clique aqui e cadastre-se</a>
+                        </>
+                    )
+                }
+            </Container>
+        </Tela>
     )
 }
