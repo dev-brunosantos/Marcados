@@ -3,17 +3,7 @@
 import { createContext, ReactNode, useState } from "react";
 import { useRouter } from 'next/navigation'
 import { ReactProps } from "../interface/IReactProps";
-
-interface UsuarioLogin { 
-    email: string;
-    senha: string;
-}
-
-interface LoginProps {
-    usuario: UsuarioLogin;
-    login: (email: string, senha: string) => void; 
-    erro: boolean;
-}
+import { LoginProps, UsuarioLogin } from "../interface/ILogin";
 
 const LoginContext = createContext<LoginProps | undefined>(undefined)
 
