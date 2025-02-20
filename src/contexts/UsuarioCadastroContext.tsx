@@ -15,7 +15,7 @@ interface UsuarioCadastro {
     usuario: Usuario;
     cadastroUsuario: (
         nome: string, email: string, senha:
-            string, confirmarSenha: string, sobrenome?: string
+            string, confirmarSenha: string
     ) => void;
     erro: boolean;
 }
@@ -34,7 +34,7 @@ const UsuarioCadastroProvider = ({ children }: ReactProps) => {
 
     const [erro, setErro] = useState(false)
 
-    function cadastroUsuario(nome: string, email: string, senha: string, confirmarSenha: string, sobrenome?: string) {
+    function cadastroUsuario(nome: string, email: string, senha: string, confirmarSenha: string) {
         if (nome.trim() === "" || email.trim() === "" || senha.trim() === "") {
             setErro(true)
             return alert("Todos os campos devem ser preenchidos para a realização do Login.")
