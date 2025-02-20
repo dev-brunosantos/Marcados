@@ -33,13 +33,6 @@ export default function Login() {
             </Container>
 
             <Container>
-                <BtnComponent
-                    titulo="Entrar"
-                    onClick={realizarLogin}
-                />
-            </Container>
-
-            <Container>
                 {
                     erro && (
                         <>
@@ -48,6 +41,13 @@ export default function Login() {
                         </>
                     )
                 }
+            </Container>
+
+            <Container>
+                <BtnComponent
+                    titulo="Entrar"
+                    onClick={realizarLogin}
+                />
             </Container>
         </Tela>
     )
