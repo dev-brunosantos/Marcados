@@ -2,10 +2,7 @@
 
 import { createContext, ReactNode, useState } from "react";
 import { useRouter } from 'next/navigation'
-
-interface ReactProps {
-    children: ReactNode;
-}
+import { ReactProps } from "../interface/IReactProps";
 
 interface UsuarioLogin { 
     email: string;
