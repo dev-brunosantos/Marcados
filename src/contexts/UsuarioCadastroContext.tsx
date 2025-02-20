@@ -1,3 +1,5 @@
+"use client"
+
 import { createContext, useState } from "react";
 import { useRouter } from 'next/navigation'
 import { ReactProps } from "../interface/IReactProps";
