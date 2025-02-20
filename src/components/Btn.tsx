@@ -6,7 +6,12 @@ interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const BtnComponent = ({ titulo, ...rest }: BtnProps) => {
     return (
-        <button {...rest}>
+        <button 
+            {...rest}
+            className="
+              w-[90%] h-11 border rounded-md relative flex items-center justify-center overflow-hidden
+            "
+        >
             {titulo}
         </button>
     )
