@@ -17,13 +17,21 @@ export const InputComponent = ({ isPassword, ...rest }: InputProps) => {
 
     if (isPassword) {
         return (
-            <div>
+            <div className="
+              w-[90%] h-11 border rounded-md relative flex items-center justify-center overflow-hidden
+            ">
                 <input
                     type={tipo}
                     {...rest}
+                    className="
+                      w-full h-full pl-5 bg-transparent outline-none
+                    "
                 />
 
-                <button onClick={verSenha}>
+                <button
+                    onClick={verSenha}
+                    className="h-full absolute right-2 z-10"
+                >
                     {tipo === "password" ? <EyeClosed /> : <Eye />}
                 </button>
             </div>
@@ -31,10 +39,15 @@ export const InputComponent = ({ isPassword, ...rest }: InputProps) => {
     }
 
     return (
-        <div>
+        <div className="
+          w-[90%] h-11 border rounded-md relative flex items-center justify-center overflow-hidden my-5
+        ">
             <input
                 type="text"
                 {...rest}
+                className="
+                  w-full h-full pl-5 bg-transparent outline-none
+                "
             />
         </div>
     )
