@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BtnComponent } from "@/src/components/Btn";
 import { InputComponent } from "@/src/components/Input";
 import { useCadastroUsuario } from "@/src/hooks/useCadastroUsuario";
+import { Container, Tela } from "../../_components/Tela";
 
 export default function NovoUsuario() {
 
@@ -21,19 +22,22 @@ export default function NovoUsuario() {
     }
 
     return (
-        <div>
+        <Tela>
+            <Container>
+                <h1 className="text-5xl">Novo usuário</h1>
+            </Container>
 
-            <div>
+            <Container>
                 <InputComponent
                     isPassword={false}
                     placeholder="Digite seu nome"
                     onChange={e => setNome(e.target.value)}
                 />
-                <InputComponent
+                {/* <InputComponent
                     isPassword={false}
                     placeholder="Digite seu sobrenome"
                     onChange={e => setSobrenome(e.target.value)}
-                />
+                /> */}
                 <InputComponent
                     isPassword={false}
                     placeholder="Digite seu e-mail"
@@ -49,14 +53,14 @@ export default function NovoUsuario() {
                     placeholder="Confirme sua senha"
                     onChange={e => setConfirmarSenha(e.target.value)}
                 />
-            </div>
+            </Container>
 
-            <div>
+            <Container>
                 <BtnComponent
                     titulo="Cadastrar"
                     onClick={cadastrarUsuario}
                 />
-            </div>
-        </div>
+            </Container>
+        </Tela>
     )
 }
