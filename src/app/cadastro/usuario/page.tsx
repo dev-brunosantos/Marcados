@@ -18,7 +18,16 @@ export default function NovoUsuario() {
     
     function cadastrarUsuario() {
         cadastroUsuario(nome,  email, senha, confirmarSenha)
-        // alert("Funcionou")
+        
+        // console.log(nome)
+
+        // let nomeCompleto = nome.split(" ")
+        // let primeiroNome = nomeCompleto[0] 
+        // let segundoNome  = nomeCompleto[1]
+
+        // console.log(primeiroNome)
+        // console.log(segundoNome)
+        // console.log(`${primeiroNome} ${segundoNome}`)
     }
 
     return (
