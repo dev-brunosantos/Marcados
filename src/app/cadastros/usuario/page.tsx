@@ -1,3 +1,5 @@
+"use client"
+
 import { BtnComponent } from "@/src/components/Btn";
 import { Container } from "@/src/components/Container";
 import { InputComponent } from "@/src/components/Input";
@@ -8,7 +10,7 @@ import { useState } from "react";
 export default function NovoUsuario() {
 
     const [usuario, setUsuario] = useState<Usuario>({
-        id: '', nome: '', sobrenome: '',
+        id: 0, nome: '', sobrenome: '',
         email: '', senha: '', cargo: '',
         naipe: ''
     })
