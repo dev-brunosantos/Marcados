@@ -1,0 +1,62 @@
+import { createContext, useState } from "react";
+import { doc, setDoc } from 'firebase/firestore';
+import { ReactProps } from "../interfaces/IReactProps";
+import { Usuario } from "../interfaces/Usuario";
+import { db } from "../config/firebase";
+
+interface UsuarioCadastroProps {
+    usuario: Usuario;
+    cadastrar: (
+        id: number, nome: string, sobrenome: string, 
+        email: string, senha: string, confirmarSenha: string,
+        categoria: string
+    ) => void;
+    confirmarSenha: string;
+}
+
+const UsuarioCadastroContext = createContext<UsuarioCadastroProps | undefined>(undefined)
+
+const UsuarioCadastroProvider = ({ children }: ReactProps) => {
+
+    const [usuario, setUsuario] = useState<Usuario>({
+        id: '', nome: '', sobrenome: '',
+        email: '', senha: '', cargo: '',
+        naipe: ''
+    })
+
+    const [confirmarSenha, setConfirmarSenha] = useState('')
+
+    async function cadastrar(
+        id: number, nome: string, sobrenome: string, email: string,
+        senha: string, confirmarSenha: string, categoria: string
+    ) {
+        if (nome.trim() === "" || email.trim() === "" || senha.trim() == "") {
+            return alert("Todos os campos devem ser preenchidos")
+        }
+
+        if(confirmarSenha !== senha) {
+            return alert("As senhas não são iguais")
+        }
+
+        return (
+
+            id = Math.floor(Math.random() * 100000) + 1,
+
+            await setDoc(doc(db, categoria), {
+                id: id,
+                nome: nome,
+                sobrenom: sobrenome,
+                email: email,
+                senha: senha
+            }),
+
+            alert("Usuário cadastrado com sucesso.")
+        )
+    }
+
+    return (
+        <UsuarioCadastroContext.Provider value={{ usuario, confirmarSenha, cadastrar }}>
+            {children}
+        </UsuarioCadastroContext.Provider>
+    )
+}
