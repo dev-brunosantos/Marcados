@@ -60,3 +60,5 @@ const UsuarioCadastroProvider = ({ children }: ReactProps) => {
         </UsuarioCadastroContext.Provider>
     )
 }
+
+export { UsuarioCadastroContext, UsuarioCadastroProvider }
