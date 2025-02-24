@@ -4,7 +4,7 @@ interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     titulo: string;
 }
 
-export const BtnComponente = ({ titulo, ...rest }:BtnProps) => {
+export const BtnComponent = ({ titulo, ...rest }:BtnProps) => {
     return(
         <div>
             <button
