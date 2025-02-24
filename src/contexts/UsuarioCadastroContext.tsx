@@ -19,7 +19,7 @@ const UsuarioCadastroContext = createContext<UsuarioCadastroProps | undefined>(u
 const UsuarioCadastroProvider = ({ children }: ReactProps) => {
 
     const [usuario, setUsuario] = useState<Usuario>({
-        id: '', nome: '', sobrenome: '',
+        id: 0, nome: '', sobrenome: '',
         email: '', senha: '', cargo: '',
         naipe: ''
     })
