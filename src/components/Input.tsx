@@ -38,7 +38,6 @@ export const InputComponent = ({ isPassword, ...rest }: InputProps) => {
                     <EyeClosed /> :
                     <Eye />
                 }
-
             </button>
         </div>
     )
