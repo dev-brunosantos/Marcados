@@ -1,3 +1,5 @@
+"use client"
+
 import { createContext, useState } from "react";
 import { doc, setDoc } from 'firebase/firestore';
 import { ReactProps } from "../interfaces/IReactProps";
