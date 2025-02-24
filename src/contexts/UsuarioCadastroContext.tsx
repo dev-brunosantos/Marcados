@@ -1,7 +1,7 @@
 "use client"
 
 import { createContext, useState } from "react";
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, addDoc, collection } from 'firebase/firestore';
 import { ReactProps } from "../interfaces/IReactProps";
 import { Usuario } from "../interfaces/Usuario";
 import { db } from "../config/firebase";
@@ -10,8 +10,7 @@ interface UsuarioCadastroProps {
     usuario: Usuario;
     cadastrar: (
         id: number, nome: string, sobrenome: string, 
-        email: string, senha: string, confirmarSenha: string,
-        categoria: string
+        email: string, senha: string, categoria: string
     ) => void;
     confirmarSenha: string;
 }
@@ -30,24 +29,30 @@ const UsuarioCadastroProvider = ({ children }: ReactProps) => {
 
     async function cadastrar(
         id: number, nome: string, sobrenome: string, email: string,
-        senha: string, confirmarSenha: string, categoria: string
+        senha: string, categoria: string
     ) {
         if (nome.trim() === "" || email.trim() === "" || senha.trim() == "") {
             return alert("Todos os campos devem ser preenchidos")
         }
 
-        if(confirmarSenha !== senha) {
-            return alert("As senhas não são iguais")
-        }
+        // if(confirmarSenha !== senha) {
+        //     return alert("As senhas não são iguais")
+        // }
 
         return (
 
             id = Math.floor(Math.random() * 100000) + 1,
 
-            await setDoc(doc(db, categoria), {
+            setUsuario({
+                id, nome, sobrenome, 
+                email, senha, cargo: '',
+                naipe: ''
+            }),
+
+            await addDoc(collection(db, categoria), {
                 id: id,
                 nome: nome,
-                sobrenom: sobrenome,
+                sobrenome: sobrenome,
                 email: email,
                 senha: senha
             }),
